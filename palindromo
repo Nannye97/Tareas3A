@@ -1,0 +1,57 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+using namespace std;
+
+int palindromo(char palabra[],int i,int f);
+int main()
+{
+	int num,num2;
+	char palabra[100];
+	
+
+	
+	cout<<"Ingresa una frase: ";
+	cin.getline(palabra,100,'\n');
+	if(palindromo(palabra,0,strlen(palabra)-1)==1)
+	{
+		cout<<"Es palindromo" ;
+	}
+	else
+	{
+		cout<<"No es palindromo" ;
+	}
+	return 0;
+}
+
+int palindromo(char palabra[],int i,int f)
+{
+	if(i<f)
+	{
+		if(palabra[i]== ' ')
+		{
+			return palindromo(palabra,++i,f);
+		}
+			
+		
+		else if (palabra[f]==' ')
+		{
+			return palindromo(palabra,i,--f);
+		}  
+		else 
+			if(palabra[i]!=palabra[f])
+			{
+				return 0;
+			}
+			else 
+			{
+				return palindromo(palabra,++i,--f);
+			}
+		
+	}
+	else 
+		return 1;
+}
+
+
+
